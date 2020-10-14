@@ -182,7 +182,7 @@ This api is responsiable for get OCR data of provided documents.
 ````js
 
     "extraction_mode": 'realtime' 
-    "document_type": "Trade Licence",
+    "document_type": "Trade Licence/Invoice",
     "pdf": "Upload a pdf file here" // Required
     "reference_number":123, // optional
     "channel":web
