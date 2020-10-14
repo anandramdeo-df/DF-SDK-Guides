@@ -542,25 +542,25 @@ This api is responsiable for get OCR data of provided documents.
 
 #### 11  **How to use ocr apis**
 
-	**Step-1** First Use this url to access the create_user_token api:
+	Step-1:- First Use this url to access the create_user_token api:
 
 		https:/{Server_Name}.datafornix.com/{tenant_name}/api/v1/create-user-token/
 
 
-	**Step-2** Use this url to access the create_user_token api version 2:
+	Step-2:- Use this url to access the create_user_token api version 2:
 
 		https:/{Server_Name}.datafornix.com/{tenant_name}/api/v2/create-user-token/
 
 
-	**Step-3** **Below are the header and request body information:**
+	Step-3:- **Below are the header and request body information:**
 
-	**Headers**
+	Headers:-
 
 		Token: Token "api_token"      //(It's type is string. You can find it by api documantation point 10)
 		Content-Type: application/json
 
 
-	**Request body**
+	Request body:-
 
 		{
 		"token":"Your_token_name",
@@ -570,12 +570,12 @@ This api is responsiable for get OCR data of provided documents.
 		}
 
 
-	**channel**:-    Select the channel you want to make the request from. The API supports either web, or android or ios types.
-	**reference_number**:- a character-field type generated at client's end for Datafornix reference purpose
-	**type_of_request**:- whether the request is asynchronous(async) or synchronous(sync)
+	channel:-    Select the channel you want to make the request from. The API supports either web, or android or ios types.
+	reference_number:- a character-field type generated at client's end for Datafornix reference purpose
+	type_of_request:- whether the request is asynchronous(async) or synchronous(sync)
 
 
-	**Response body**
+	Response body
 		{
 		    "auth_token": "user_authentication_token",
 		    "name": "Guest Username",
@@ -585,12 +585,12 @@ This api is responsiable for get OCR data of provided documents.
 		    "type_of_request": "Request_body type_of_request"
 		}
 
-	**Step-4**:- 
+	Step-4:- 
 
 		For example you get auth_token it like that way. You need to use it in get pdf ocr and ocr api for user authentication.
 		auth_token:- "WgHAsQvpclZ7CDJUj50CKRo6dWfcqd3j"
 
-	**Step-5**:- 
+	Step-5:- 
 
 		Use this below url to access the get ocr api version one and two and pdf ocr apis:
 
