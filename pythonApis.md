@@ -414,3 +414,115 @@ It will return following object array.
     "type_of_request": ""
 }
 ```
+
+### 8. Document Capture Version 2
+
+This api is responsiable for get OCR data of provided documents. 
+
+##### 8.1 **API URL**  
+`https://qat.datafornix.com/mashreq/api/v2/asset/get-ocr-results/`
+
+##### 8.2 **Method Type**
+`POST`
+
+##### 8.3 **Require Parameters**
+
+##### Request ( ** application/json **  )
+````js
+{
+    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
+    "reference_number": "reference number here",
+    "images": [{
+        "image_string": "image base64 string here",
+        "authority": "authority string herer",
+        "description":"Front" // Use "Back" for back image
+    }, {
+        ...
+    }], // Required
+    "channel": "web", // optional
+}
+````
+
+##### Headers
+
+````js
+{
+    "Authorization": "bearer W83CdPEc5wf25aFKBM8zvIdBXZ4nbx0X", // token that you will receive in create-user => auth_token key response
+    "Token": "Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH" // Add a valid api_token
+}
+````
+##### 8.4  Response ( ** application/json **  )
+````js
+{
+    "application_error_list": [     
+        {
+            "error_code": "",
+            "error_message": ""
+        },
+        {
+            "error_code": "",
+            "error_message": ""
+        }
+    ],
+    "data": {
+        "asset_type": "",
+        "channel": "web",
+        "reference_number": "",
+        "type_of_request": "get OCR",
+        "properties": {}      // All extracted fields with values come here
+    },
+    "image_feedback": {
+        "back_image_resolution": "",
+        "is_front_exif_data": "",
+        "front_image_orientation": "",
+        "front_image_resolution": "",
+        "is_back_exif_data": "",
+        "back_image_orientation": ""
+    },
+    "image_quality_feedback": ""
+}
+````
+
+
+### 9. Get Pdf Ocr Version 2
+
+This api is responsiable for get OCR data of provided documents. 
+
+##### 4.1 **API URL**  
+`https://qat.datafornix.com/mashreq/api/v2/asset/get-pdf-ocr/`
+
+##### 4.2 **Method Type**
+`POST`
+
+##### 4.3 **Require Parameters**
+
+##### Request ( ** application/x-www-form-urlencoded **  )
+````js
+
+    "extraction_mode": 'realtime' 
+    "document_type": "Trade Licence/Invoice",
+    "pdf": "Upload a pdf file here" // Required
+    "reference_number":123, // optional
+    "channel":web
+
+````
+
+##### Headers
+
+````js
+{
+    "Authorization": "bearer W83CdPEc5wf25aFKBM8zvIdBXZ4nbx0X", // token that you will receive in create-user => auth_token key response
+    "Token": "Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH" // Add a valid api_token
+}
+````
+##### 4.5  Response ( ** application/json **  )
+````js
+{
+    "data": {
+        "channel": "web",
+        "reference_number": "123",
+        "properties": {}                  // All extracted fields with values come here
+    },
+    "application_error_list": []
+}
+````
