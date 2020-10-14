@@ -544,12 +544,12 @@ This api is responsiable for get OCR data of provided documents.
 
 	Step-1:- First Use this url to access the create_user_token api:
 
-		https:/{Server_Name}.datafornix.com/{tenant_name}/api/v1/create-user-token/
+		https://{Server_Name}.datafornix.com/{tenant_name}/api/v1/create-user-token/
 
 
 	Step-2:- Use this url to access the create_user_token api version 2:
 
-		https:/{Server_Name}.datafornix.com/{tenant_name}/api/v2/create-user-token/
+		https://{Server_Name}.datafornix.com/{tenant_name}/api/v2/create-user-token/
 
 
 	Step-3:- **Below are the header and request body information:**
