@@ -10,7 +10,10 @@ DataFornix: Python API's
 This api is responsiable for create user.
 
 ##### 1.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/create-user-token/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/create-user-token/`
+
+**server_name** Server name is the bases of tenant eniviroment which you are using. The detail is mentioned in the point 10 in tabular format.
+**tenant_name** Tenant name is the bases of which bank or organisation is consuming get ocr apis. The detail is mentioned in the point 10 in tabular format.
 
 ##### 1.2 **Method Type**
 `POST`
@@ -368,7 +371,7 @@ It will return following object array.
 This api is responsiable for compare two image url's.
 
 ##### 7.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/compare-image/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/compare-image/`
 
 ##### 7.2 **Method Type**
 `POST`
@@ -420,7 +423,7 @@ It will return following object array.
 This api is responsiable for get OCR data of provided documents. 
 
 ##### 8.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v2/asset/get-ocr-results/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-ocr-results/`
 
 ##### 8.2 **Method Type**
 `POST`
@@ -489,7 +492,7 @@ This api is responsiable for get OCR data of provided documents.
 This api is responsiable for get OCR data of provided documents. 
 
 ##### 9.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v2/asset/get-pdf-ocr/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-pdf-ocr/`
 
 ##### 9.2 **Method Type**
 `POST`
@@ -526,3 +529,106 @@ This api is responsiable for get OCR data of provided documents.
     "application_error_list": []
 }
 ````
+
+#### 10  Server and tenant name detail
+| ** Server Name  **                              | ** Tenant Name **|
+|-------------------------------------------------|-------------|
+| qat  (Development env)           		  | mashreq     |
+| mashreq (Production env)                        | mashreq     |
+| pruvista-qat (Development env)                  | pruvista    |
+| datafornix.workplacecredit.com (production env) | pruvista    |
+| build.datafornix.com (apix env)                 | apix        |
+
+
+#### 11  How to use get ocr apis
+
+** Step-1 ** Use this url to access the create_user_token api:
+https:/{Server_Name}.datafornix.com/{tenant_name}/api/v1/create-user-token/
+
+** Step-2 ** Use this url to access the create_user_token api version 2:
+https:/{Server_Name}.datafornix.com/{tenant_name}/api/v2/create-user-token/
+
+** Step-3 ** Below are the header and request body information:
+
+** Headers **
+Token: Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH (It is the api token for tenant authentication)
+Content-Type: application/json
+
+
+** Request body **
+{
+"token":"Your_token_name",
+"channel": "web/android/ios",
+"reference_number": "your reference number in character-field format",
+"type_of_request": "async/sync"
+}
+
+
+** channel **  Select the channel you want to make the request from. The API supports either web, or android or ios types.
+** reference_number ** a character-field type generated at client's end for Datafornix reference purpose
+** type_of_request ** whether the request is asynchronous(async) or synchronous(sync)
+
+
+** Response body **
+{
+    "auth_token": "user_authentication_token",
+    "name": "Guest Username",
+    "token": "Request_body token",
+    "channel": "Request_body channel",
+    "reference_number": "Request_body reference_number",
+    "type_of_request": "Request_body type_of_request"
+}
+
+
+For example you get auth_token it like that way. You need to use it in get pdf ocr api for user authentication.
+auth_token:- "WgHAsQvpclZ7CDJUj50CKRo6dWfcqd3j"
+
+
+The GET OCR API version one can be accessed via the following URL:
+ https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-ocr-results/
+ 
+ The GET OCR API version two can be accessed via the following URL:
+ https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-ocr-results/
+
+Request Header for the above is:
+Token:Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH
+Authorization: bearer "auth_token"(Use auth_token what we get form create_user_token)
+
+1. If the document has single image like passport. So the request structure as below:-
+
+Request Body:
+{
+  "document_type": "",
+  "channel": "web",
+  "reference_number": "123",
+   "images": [
+	{
+		"authority": "AE",
+		"description": "Front",
+		"image_string": ""
+	}
+]
+}
+
+2. If the document has double image like identity card. So the request structure as below:-
+
+
+Request Body:
+
+{
+  "document_type": "",
+  "channel": "web",
+  "reference_number": "123",
+   "images": [
+	{
+		"authority": "AE",
+		"description": "Back",
+		"image_string": ""
+	}
+]
+}
+
+
+
+
+
