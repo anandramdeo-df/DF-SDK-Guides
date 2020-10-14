@@ -488,13 +488,13 @@ This api is responsiable for get OCR data of provided documents.
 
 This api is responsiable for get OCR data of provided documents. 
 
-##### 4.1 **API URL**  
+##### 9.1 **API URL**  
 `https://qat.datafornix.com/mashreq/api/v2/asset/get-pdf-ocr/`
 
-##### 4.2 **Method Type**
+##### 9.2 **Method Type**
 `POST`
 
-##### 4.3 **Require Parameters**
+##### 9.3 **Require Parameters**
 
 ##### Request ( ** application/x-www-form-urlencoded **  )
 ````js
@@ -515,7 +515,7 @@ This api is responsiable for get OCR data of provided documents.
     "Token": "Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH" // Add a valid api_token
 }
 ````
-##### 4.5  Response ( ** application/json **  )
+##### 9.5  Response ( ** application/json **  )
 ````js
 {
     "data": {
