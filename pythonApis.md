@@ -554,36 +554,36 @@ This api is responsiable for get OCR data of provided documents.
 
 	Step-3:- **Below are the header and request body information:**
 
-	Headers:-
+		Headers:-
 
-		Token: Token "api_token"      //(It's type is string. You can find it by api documantation point 10)
-		Content-Type: application/json
-
-
-	Request body:-
-
-		{
-		"token":"Your_token_name",
-		"channel": "web/android/ios",
-		"reference_number": "your reference number in character-field format",
-		"type_of_request": "async/sync"
-		}
+			Token: Token "api_token"      //(It's type is string. You can find it by api documantation point 10)
+			Content-Type: application/json
 
 
-	channel:-    Select the channel you want to make the request from. The API supports either web, or android or ios types.
-	reference_number:- a character-field type generated at client's end for Datafornix reference purpose
-	type_of_request:- whether the request is asynchronous(async) or synchronous(sync)
+		Request body:-
+
+			{
+			"token":"Your_token_name",
+			"channel": "web/android/ios",
+			"reference_number": "your reference number in character-field format",
+			"type_of_request": "async/sync"
+			}
 
 
-	Response body
-		{
-		    "auth_token": "user_authentication_token",
-		    "name": "Guest Username",
-		    "token": "Request_body token",
-		    "channel": "Request_body channel",
-		    "reference_number": "Request_body reference_number",
-		    "type_of_request": "Request_body type_of_request"
-		}
+		channel:-    Select the channel you want to make the request from. The API supports either web, or android or ios types.
+		reference_number:- a character-field type generated at client's end for Datafornix reference purpose
+		type_of_request:- whether the request is asynchronous(async) or synchronous(sync)
+
+
+		Response body
+			{
+			    "auth_token": "user_authentication_token",
+			    "name": "Guest Username",
+			    "token": "Request_body token",
+			    "channel": "Request_body channel",
+			    "reference_number": "Request_body reference_number",
+			    "type_of_request": "Request_body type_of_request"
+			}
 
 	Step-4:- 
 
