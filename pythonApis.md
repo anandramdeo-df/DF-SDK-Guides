@@ -594,24 +594,24 @@ This api is responsiable for get OCR data of provided documents.
 
 		Use this below url to access the get ocr api version one and two and pdf ocr apis:
 
-		**a.** **The GET OCR API version one can be accessed via the following URL:**
+		a. The GET OCR API version one can be accessed via the following URL:
 
 			https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-ocr-results/
 
-		**b.** **The GET OCR API version two can be accessed via the following URL:**
+		b. The GET OCR API version two can be accessed via the following URL:
 
 				https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-ocr-results/
 
-		**c.** **The GET pdf OCR API for pdf type document can be accessed via the following URL:**
+		c. The GET pdf OCR API for pdf type document can be accessed via the following URL:
 
 				https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-pdf-ocr/
 
-		**Request Header for the above is:**
+		Request Header for the above is:
 
-			**Token:**   Token "api_token" (It's type is string. You can find it by api documantation point 10)
-			**Authorization:** bearer "auth_token"(Use auth_token what we get form create_user_token)
+			Token:   Token "api_token" (It's type is string. You can find it by api documantation point 10)
+			Authorization: bearer "auth_token"(Use auth_token what we get form create_user_token)
 
-		**1. If the document has single image like passport. It is the request structure of get ocr api. So the request structure as below:-**
+		1. If the document has single image like passport. It is the request structure of get ocr api. So the request structure as below:-
 
 			Request Body:
 			{
@@ -627,7 +627,7 @@ This api is responsiable for get OCR data of provided documents.
 			]
 			}
 
-		**2. If the document has front and back both image like identity card. So the request structure as below:-**
+		2. If the document has front and back both image like identity card. So the request structure as below:-
 
 
 			Request Body:
@@ -646,7 +646,7 @@ This api is responsiable for get OCR data of provided documents.
 			}
 
 
-		**3. If the document is pdf or image. It is the request structure of get pdf ocr api.So the request structure as below:-
+		3. If the document is pdf or image. It is the request structure of get pdf ocr api.So the request structure as below:-
 
 			extraction_mode:realtime
 			document_type:"Invoice/Trade Licence"
@@ -655,7 +655,7 @@ This api is responsiable for get OCR data of provided documents.
 			type_of_request""
 			pdf: "Image/PDF"  //"File_object"
 
-	**Step-6**:- The get ocr api version 1 and version 2 response below:
+	Step-6:- The get ocr api version 1 and version 2 response below:
 
 		{
 	    "application_error_list": [     
@@ -686,7 +686,7 @@ This api is responsiable for get OCR data of provided documents.
 	    "image_quality_feedback": ""
 	}
 
-	**Step-7**:- The pdf ocr api version response below:-
+	Step-7:- The pdf ocr api version response below:-
 
 		{
 		    "data": {
@@ -696,7 +696,3 @@ This api is responsiable for get OCR data of provided documents.
 		    },
 		    "application_error_list": []
 		}
-
-			
-		
-	
