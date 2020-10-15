@@ -33,19 +33,21 @@ The following improvment with get ocr api version 2:-
 
 ````js
 1. Get ocr version one only support images. But get ocr api version two support pdf or image both.
-2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version support front and back image      together  in one call.
+2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version two support combine front and back image base64 string of document together in api request to get the response. 
 ````
 
 The following changes in request structure:-
 
 ````js
-1. You can send "images_string" value as base64 string of pdf document to get the response of pdf document.
-2. You can send "image_string" value as base64 sring of combined front and back image to get the response of document.
+You have multiple option to get the ocr response with get ocr api version 2:- 
+1. You can send front "images_string" value as base64 string of pdf document. If you send front and back combine pdf base64 string. So you do not need to send anythng with back "image string".
+2. You can send "image_string" value as base64 sring of combined front and back image. So you do not need to send anythng with back "image string".
+3. You can send front "image_string" as base64 string of pdf document.If you send only front image pdf as base64 string so you need to send back image pdf as base64 string as well.
 ````
 
 Api Request structure of get ocr api V1( ** application/json **  )
 
-````js    
+````js 
 {
     "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
     "reference_number": "reference number here",
@@ -63,18 +65,33 @@ Api Request structure of get ocr api V1( ** application/json **  )
 Api Request for get_ocr_v2( ** application/json **  )
 
 ````js
+1. If you send combine front and back image or pdf document. So you need to send following request structure:-
 {
     "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
     "reference_number": "reference number here",
     "images": [{
-	"image_string": "image base64 string here/ pdf base64 string",
+	"image_string": "image base64 string here/ pdf base64 string",  //Cobmbine front and back image or pdf document base64 string
 	"authority": "authority string herer",
-	"description":"Front" // Use "Back" for back image
-    }, {
-	...
+	"description":"Front" 
     }], // Required
     "channel": "web", // optional
 }
+
+2. If you send seprate front and back image or pdf document. So you need to send following request structure:-
+{
+    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
+    "reference_number": "reference number here",
+    "images": [{
+	"image_string": "image base64 string here/ pdf base64 string",    //front image or pdf document base64 string
+	"authority": "authority string herer",
+	"description":"Front"  // Use "Back" for back image
+    },{
+	...
+    }], // Required                                                      //back image or pdf document base64 string 
+    "channel": "web", // optional
+}
+
+
 ````
 
 ##### 2.3  Response ( ** application/json **  )
@@ -118,12 +135,7 @@ Api Request for get_ocr_v2( ** application/json **  )
 		https://{Server_Name}.datafornix.com/{tenant_name}/api/v1/create-user-token/
 
 
-	Step-2:- Use this url to access the create_user_token api version 2:
-
-		https://{Server_Name}.datafornix.com/{tenant_name}/api/v2/create-user-token/
-
-
-	Step-3:- **Below are the header and request body information:**
+	Step-2:- **Below are the header and request body information:**
 
 		Headers:-
 
@@ -156,12 +168,12 @@ Api Request for get_ocr_v2( ** application/json **  )
 			    "type_of_request": "Request_body type_of_request"
 			}
 
-	Step-4:- 
+	Step-3:- 
 
 		For example you get auth_token it like that way. You need to use it in get pdf ocr and ocr api for user authentication.
 		auth_token:- "WgHAsQvpclZ7CDJUj50CKRo6dWfcqd3j"
 
-	Step-5:- 
+	Step-4:- 
 
 		Use this below url to access the get ocr api version one and two and pdf ocr apis:
 
@@ -226,7 +238,7 @@ Api Request for get_ocr_v2( ** application/json **  )
 			type_of_request""
 			pdf: "Image/PDF"  //"File_object"
 
-	Step-6:- The get ocr api version 1 and version 2 response below:
+	Step-5:- The get ocr api version 1 and version 2 response below:
 
 		{
 	    "application_error_list": [     
@@ -257,7 +269,7 @@ Api Request for get_ocr_v2( ** application/json **  )
 	    "image_quality_feedback": ""
 	}
 
-	Step-7:- The pdf ocr api version response below:-
+	Step-6:- The pdf ocr api version response below:-
 
 		{
 		    "data": {
