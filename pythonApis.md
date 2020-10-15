@@ -107,7 +107,7 @@ It will return following object array.
 This api is responsiable for get OCR data of provided documents. 
 
 ##### 3.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/asset/get-ocr-results/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-ocr-results/`
 
 ##### 3.2 **Method Type**
 `POST`
@@ -174,7 +174,7 @@ This api is responsiable for get OCR data of provided documents.
 This api is responsiable for get OCR data of provided documents. 
 
 ##### 4.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/asset/get-pdf-ocr/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-pdf-ocr/`
 
 ##### 4.2 **Method Type**
 `POST`
