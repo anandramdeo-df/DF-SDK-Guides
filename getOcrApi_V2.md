@@ -28,16 +28,21 @@ This api is responsiable for get OCR data of provided documents.
 
 ##### 2.2 Api Request( ** application/json **  )
 
-````js
+
 The following improvment with get ocr api version 2:-
+
+````js
 1. Get ocr version one only support images. But get ocr api version two support pdf or image both.
 2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version support front and back image      together  in one call.
+````
 
 The following changes in request structure:-
+
+````js
 1. You can send "images_string" value as base64 string of pdf document to get the response of pdf document.
 2. You can send "image_string" value as base64 sring of combined front and back image to get the response of document.
 ````
-          
+
 Api Request structure of get ocr api V1( ** application/json **  )
 
 ````js    
