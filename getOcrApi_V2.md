@@ -77,7 +77,7 @@ Api Request for get_ocr_v2( ** application/json **  )
     "channel": "web", // optional
 }
 
-2. If you send seprate front and back image or pdf document. So you need to send following request structure:-
+2. If you send separate front and back image or pdf document. So you need to send following request structure:-
 {
     "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
     "reference_number": "reference number here",
