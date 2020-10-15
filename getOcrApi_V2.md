@@ -10,9 +10,9 @@ DataFornix: Upgrade from Get ocr v1 to Get ocr v2
   
   | Server Name                                     | Tenant Name | Api token                          |
   |-------------------------------------------------|-------------|------------------------------------|
-  | {env}.datafornix.com  (Development env)           | {tenant_name}     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
-  | {env}.datafornix.com (Production env)         | {tenant_name}     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
-  | {env}.datafornix.com (Development env)   | {tenant_name}    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
+  | {env}.datafornix.com  (Development env)           | {tenant_name}     | {api_token}|
+  | {env}.datafornix.com (Production env)         | {tenant_name}     | {api_token} |
+  | {env}.datafornix.com (Development env)   | {tenant_name}    | {api_token} |
  
 
 ### 2. Document Capture
