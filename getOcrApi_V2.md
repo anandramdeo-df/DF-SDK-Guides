@@ -28,49 +28,49 @@ This api is responsiable for get OCR data of provided documents.
 
 ##### 2.2 Api Request( ** application/json **  )
 
-	````js
-	The following improvment with get ocr api version 2:-
-	1. Get ocr version one only support images. But get ocr api version two support pdf or image both.
-	2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version support front and back image      together  in one call.
+````js
+The following improvment with get ocr api version 2:-
+1. Get ocr version one only support images. But get ocr api version two support pdf or image both.
+2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version support front and back image      together  in one call.
 
-	The following changes in request structure:-
-	1. You can send "images_string" value as base64 string of pdf document to get the response of pdf document.
-	2. You can send "image_string" value as base64 sring of combined front and back image to get the response of document.
-	````
+The following changes in request structure:-
+1. You can send "images_string" value as base64 string of pdf document to get the response of pdf document.
+2. You can send "image_string" value as base64 sring of combined front and back image to get the response of document.
+````
           
-### Request structure of get ocr api V1
+Api Request structure of get ocr api V1( ** application/json **  )
 
-   ````js    
-	{
-	    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
-	    "reference_number": "reference number here",
-	    "images": [{
-		"image_string": "image base64 string here",
-		"authority": "authority string herer",
-		"description":"Front" // Use "Back" for back image
-	    }, {
-		...
-	    }], // Required
-	    "channel": "web", // optional
-	}
-	````
+````js    
+{
+    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
+    "reference_number": "reference number here",
+    "images": [{
+	"image_string": "image base64 string here",
+	"authority": "authority string herer",
+	"description":"Front" // Use "Back" for back image
+    }, {
+	...
+    }], // Required
+    "channel": "web", // optional
+}
+````
 
-##### Api Request for get_ocr_v2( ** application/json **  )
+Api Request for get_ocr_v2( ** application/json **  )
 
-	````js
-	{
-	    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
-	    "reference_number": "reference number here",
-	    "images": [{
-		"image_string": "image base64 string here/ pdf base64 string",
-		"authority": "authority string herer",
-		"description":"Front" // Use "Back" for back image
-	    }, {
-		...
-	    }], // Required
-	    "channel": "web", // optional
-	}
-	````
+````js
+{
+    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
+    "reference_number": "reference number here",
+    "images": [{
+	"image_string": "image base64 string here/ pdf base64 string",
+	"authority": "authority string herer",
+	"description":"Front" // Use "Back" for back image
+    }, {
+	...
+    }], // Required
+    "channel": "web", // optional
+}
+````
 
 ##### 2.3  Response ( ** application/json **  )
 
@@ -106,7 +106,7 @@ This api is responsiable for get OCR data of provided documents.
 	}
 	````
 
-#### 4  **How to use ocr apis**
+#### 3  **How to use ocr apis**
 
 	Step-1:- First Use this url to access the create_user_token api:
 
