@@ -13,13 +13,14 @@ This api is responsiable for create user.
   **server_name** Server name is the bases of tenant eniviroment which you are using. The detail is mentioned in the point 10 in tabular format.
   **tenant_name** Tenant name is the bases of which bank or organisation is consuming get ocr apis. The detail is mentioned in the point 10 in tabular format.
   
-	| Server Name                                     | Tenant Name | Api token                          |
-	|-------------------------------------------------|-------------|------------------------------------|
-	| qat.datafornix.com  (Development env)           | mashreq     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
-	| mashreq.datafornix.com (Production env)         | mashreq     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
-	| pruvista-qat.datafornix.com (Development env)   | pruvista    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
-	| datafornix.workplacecredit.com (production env) | pruvista    | “Ol7DANgW0F2BXKRDkKXvI58bgG8o69ge” |
-	| build.datafornix.com (apix env)                 | apix        | “k27t5uuk3pWsJYbGP0Lognnvu2mZkUEH” |
+  | Server Name                                     | Tenant Name | Api token                          |
+  |-------------------------------------------------|-------------|------------------------------------|
+  | qat.datafornix.com  (Development env)           | mashreq     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
+  | mashreq.datafornix.com (Production env)         | mashreq     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
+  | pruvista-qat.datafornix.com (Development env)   | pruvista    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
+  | datafornix.workplacecredit.com (production env) | pruvista    | “Ol7DANgW0F2BXKRDkKXvI58bgG8o69ge” |
+  | build.datafornix.com (apix env)                 | apix        | “k27t5uuk3pWsJYbGP0Lognnvu2mZkUEH” |
+
 
 ##### 1.1 **API URL**  
 `https://{server_name}.datafornix.com/{tenant_name}/api/v1/create-user-token/`
