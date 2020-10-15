@@ -10,12 +10,10 @@ DataFornix: Upgrade from Get ocr v1 to Get ocr v2
   
   | Server Name                                     | Tenant Name | Api token                          |
   |-------------------------------------------------|-------------|------------------------------------|
-  | qat.datafornix.com  (Development env)           | mashreq     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
-  | mashreq.datafornix.com (Production env)         | mashreq     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
-  | pruvista-qat.datafornix.com (Development env)   | pruvista    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
-  | datafornix.workplacecredit.com (production env) | pruvista    | “Ol7DANgW0F2BXKRDkKXvI58bgG8o69ge” |
-  | build.datafornix.com (apix env)                 | apix        | “k27t5uuk3pWsJYbGP0Lognnvu2mZkUEH” |
-
+  | {env}.datafornix.com  (Development env)           | {tenant_name}     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
+  | {env}.datafornix.com (Production env)         | {tenant_name}     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
+  | {env}.datafornix.com (Development env)   | {tenant_name}    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
+ 
 
 ### 2. Document Capture
 
