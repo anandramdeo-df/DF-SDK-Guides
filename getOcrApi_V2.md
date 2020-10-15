@@ -6,6 +6,7 @@ DataFornix: Upgrade from Get ocr v1 to Get ocr v2
 ##### 1 **Explanation of server_name and tenant_name**
   **server_name** Server name is the bases of tenant eniviroment which you are using. The detail is mentioned in the point 10 in tabular format.
   **tenant_name** Tenant name is the bases of which bank or organisation is consuming get ocr apis. The detail is mentioned in the point 10 in tabular format.
+  **api_token** Api token is random string which is use for tenant authentication.
   
   | Server Name                                     | Tenant Name | Api token                          |
   |-------------------------------------------------|-------------|------------------------------------|
@@ -43,6 +44,7 @@ You have multiple option to get the ocr response with get ocr api version 2:-
 1. You can send front "images_string" value as base64 string of pdf document. If you send front and back combine pdf base64 string. So you do not need to send anythng with back "image string".
 2. You can send "image_string" value as base64 sring of combined front and back image. So you do not need to send anythng with back "image string".
 3. You can send front "image_string" as base64 string of pdf document.If you send only front image pdf as base64 string so you need to send back image pdf as base64 string as well.
+4. You can send combined front and back pdf or image base64 string in front and back "image string". The api will give the response.
 ````
 
 Api Request structure of get ocr api V1( ** application/json **  )
