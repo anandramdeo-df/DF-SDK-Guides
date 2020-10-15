@@ -13,14 +13,13 @@ This api is responsiable for create user.
   **server_name** Server name is the bases of tenant eniviroment which you are using. The detail is mentioned in the point 10 in tabular format.
   **tenant_name** Tenant name is the bases of which bank or organisation is consuming get ocr apis. The detail is mentioned in the point 10 in tabular format.
   
-    | **Server Name**                                     | **Tenant Name** | **Api token**                          |
-    |-------------------------------------------------|-------------|------------------------------------|
-    | qat  (Development env)           | mashreq     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
-    | mashreq (Production env)         | mashreq     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
-    | pruvista (Development env)   | pruvista    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
-    | datafornix.workplacecredit.com (production env) | pruvista    | “Ol7DANgW0F2BXKRDkKXvI58bgG8o69ge” |
-    | build.datafornix.com (apix env)                 | apix        | “k27t5uuk3pWsJYbGP0Lognnvu2mZkUEH” |
-
+	| Server Name                                     | Tenant Name | Api token                          |
+	|-------------------------------------------------|-------------|------------------------------------|
+	| qat.datafornix.com  (Development env)           | mashreq     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
+	| mashreq.datafornix.com (Production env)         | mashreq     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
+	| pruvista-qat.datafornix.com (Development env)   | pruvista    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
+	| datafornix.workplacecredit.com (production env) | pruvista    | “Ol7DANgW0F2BXKRDkKXvI58bgG8o69ge” |
+	| build.datafornix.com (apix env)                 | apix        | “k27t5uuk3pWsJYbGP0Lognnvu2mZkUEH” |
 
 ##### 1.1 **API URL**  
 `https://{server_name}.datafornix.com/{tenant_name}/api/v1/create-user-token/`
@@ -80,15 +79,14 @@ This api is responsiable for get OCR data of provided documents.
 
 ##### Api Request( ** application/json **  )
 ````js
-**Note**:- The following improvment with get ocr api version 2:
-       1. Get ocr version one only support images. But get ocr api version two support pdf or image both.
-       2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version support front and back image together in one call.
+	**Note**:- The following improvment with get ocr api version 2:
+	       1. Get ocr version one only support images. But get ocr api version two support pdf or image both.
+	       2. Get ocr version one  need to send front and back image both in request to get the response. But get ocr version support front and back image      together in one call.
        
-**Note**:- The following changes in request structure:
-        1. You can send "images_string" value as base64 string of pdf document to get the response of pdf document.
-        2. You can send "image_string" value as base64 sring of combined front and back image to get the response of document.
-       
-       
+	**Note**:- The following changes in request structure:
+		1. You can send "images_string" value as base64 string of pdf document to get the response of pdf document.
+		2. You can send "image_string" value as base64 sring of combined front and back image to get the response of document.
+          
 ### Request structure of get ocr api V1
        
 {
