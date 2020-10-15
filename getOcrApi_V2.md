@@ -98,7 +98,6 @@ Api Request for get_ocr_v2( ** application/json **  )
 
 ##### 2.3  Response ( ** application/json **  )
 
-	````js
 	 The response structure is same with V1 and V2.
 	{
 	    "application_error_list": [     
@@ -128,7 +127,7 @@ Api Request for get_ocr_v2( ** application/json **  )
 	    },
 	    "image_quality_feedback": ""
 	}
-	````
+	
 
 #### 3  **How to use ocr apis**
 
