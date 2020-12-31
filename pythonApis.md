@@ -10,7 +10,10 @@ DataFornix: Python API's
 This api is responsiable for create user.
 
 ##### 1.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/create-user-token/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/create-user-token/`
+
+**server_name** Server name is the bases of tenant eniviroment which you are using. The detail is mentioned in the point 10 in tabular format.
+**tenant_name** Tenant name is the bases of which bank or organisation is consuming get ocr apis. The detail is mentioned in the point 10 in tabular format.
 
 ##### 1.2 **Method Type**
 `POST`
@@ -104,7 +107,7 @@ It will return following object array.
 This api is responsiable for get OCR data of provided documents. 
 
 ##### 3.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/asset/get-ocr-results/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-ocr-results/`
 
 ##### 3.2 **Method Type**
 `POST`
@@ -171,7 +174,7 @@ This api is responsiable for get OCR data of provided documents.
 This api is responsiable for get OCR data of provided documents. 
 
 ##### 4.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/asset/get-pdf-ocr/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-pdf-ocr/`
 
 ##### 4.2 **Method Type**
 `POST`
@@ -182,7 +185,7 @@ This api is responsiable for get OCR data of provided documents.
 ````js
 
     "extraction_mode": 'realtime' 
-    "document_type": "Trade Licence",
+    "document_type": "Trade Licence/Invoice",
     "pdf": "Upload a pdf file here" // Required
     "reference_number":123, // optional
     "channel":web
@@ -368,7 +371,7 @@ It will return following object array.
 This api is responsiable for compare two image url's.
 
 ##### 7.1 **API URL**  
-`https://qat.datafornix.com/mashreq/api/v1/compare-image/`
+`https://{server_name}.datafornix.com/{tenant_name}/api/v1/compare-image/`
 
 ##### 7.2 **Method Type**
 `POST`
@@ -414,3 +417,282 @@ It will return following object array.
     "type_of_request": ""
 }
 ```
+
+### 8. Document Capture Version 2
+
+This api is responsiable for get OCR data of provided documents. 
+
+##### 8.1 **API URL**  
+`https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-ocr-results/`
+
+##### 8.2 **Method Type**
+`POST`
+
+##### 8.3 **Require Parameters**
+
+##### Request ( ** application/json **  )
+````js
+{
+    "document_type": 'Identity Card' // Required: or 'Driving Licence', 'Passport', 'Vehicle Registration'
+    "reference_number": "reference number here",
+    "images": [{
+        "image_string": "image base64 string here",
+        "authority": "authority string herer",
+        "description":"Front" // Use "Back" for back image
+    }, {
+        ...
+    }], // Required
+    "channel": "web", // optional
+}
+````
+
+##### Headers
+
+````js
+{
+    "Authorization": "bearer W83CdPEc5wf25aFKBM8zvIdBXZ4nbx0X", // token that you will receive in create-user => auth_token key response
+    "Token": "Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH" // Add a valid api_token
+}
+````
+##### 8.4  Response ( ** application/json **  )
+````js
+{
+    "application_error_list": [     
+        {
+            "error_code": "",
+            "error_message": ""
+        },
+        {
+            "error_code": "",
+            "error_message": ""
+        }
+    ],
+    "data": {
+        "asset_type": "",
+        "channel": "web",
+        "reference_number": "",
+        "type_of_request": "get OCR",
+        "properties": {}      // All extracted fields with values come here
+    },
+    "image_feedback": {
+        "back_image_resolution": "",
+        "is_front_exif_data": "",
+        "front_image_orientation": "",
+        "front_image_resolution": "",
+        "is_back_exif_data": "",
+        "back_image_orientation": ""
+    },
+    "image_quality_feedback": ""
+}
+````
+
+
+### 9. Get Pdf Ocr Version 2
+
+This api is responsiable for get OCR data of provided documents. 
+
+##### 9.1 **API URL**  
+`https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-pdf-ocr/`
+
+##### 9.2 **Method Type**
+`POST`
+
+##### 9.3 **Require Parameters**
+
+##### Request ( ** application/x-www-form-urlencoded **  )
+````js
+
+    "extraction_mode": 'realtime' 
+    "document_type": "Trade Licence/Invoice",
+    "pdf": "Upload a pdf file here" // Required
+    "reference_number":123, // optional
+    "channel":web
+
+````
+
+##### Headers
+
+````js
+{
+    "Authorization": "bearer W83CdPEc5wf25aFKBM8zvIdBXZ4nbx0X", // token that you will receive in create-user => auth_token key response
+    "Token": "Token vB2lWt8gicVs34yXoxH62VsjeLPWCxrH" // Add a valid api_token
+}
+````
+##### 9.5  Response ( ** application/json **  )
+````js
+{
+    "data": {
+        "channel": "web",
+        "reference_number": "123",
+        "properties": {}                  // All extracted fields with values come here
+    },
+    "application_error_list": []
+}
+````
+
+#### 10  **Server and tenant name detail**
+| **Server Name**                                     | **Tenant Name** | **Api token**                          |
+|-------------------------------------------------|-------------|------------------------------------|
+| qat  (Development env)           | mashreq     | “vB2lWt8gicVs34yXoxH62VsjeLPWCxrH” |
+| mashreq (Production env)         | mashreq     | “zLuv2i8lNy6phDMav6tXn3mFucb6kVEs” |
+| pruvista (Development env)   | pruvista    | “OEADSSXTckpVDSY0MOU6Mxa9rSwIAjkC” |
+| datafornix.workplacecredit.com (production env) | pruvista    | “Ol7DANgW0F2BXKRDkKXvI58bgG8o69ge” |
+| build.datafornix.com (apix env)                 | apix        | “k27t5uuk3pWsJYbGP0Lognnvu2mZkUEH” |
+
+
+#### 11  **How to use ocr apis**
+
+	Step-1:- First Use this url to access the create_user_token api:
+
+		https://{Server_Name}.datafornix.com/{tenant_name}/api/v1/create-user-token/
+
+
+	Step-2:- Use this url to access the create_user_token api version 2:
+
+		https://{Server_Name}.datafornix.com/{tenant_name}/api/v2/create-user-token/
+
+
+	Step-3:- **Below are the header and request body information:**
+
+		Headers:-
+
+			Token: Token "api_token"      //(It's type is string. You can find it by api documantation point 10)
+			Content-Type: application/json
+
+
+		Request body:-
+
+			{
+			"token":"Your_token_name",
+			"channel": "web/android/ios",
+			"reference_number": "your reference number in character-field format",
+			"type_of_request": "async/sync"
+			}
+
+
+		channel:-    Select the channel you want to make the request from. The API supports either web, or android or ios types.
+		reference_number:- a character-field type generated at client's end for Datafornix reference purpose
+		type_of_request:- whether the request is asynchronous(async) or synchronous(sync)
+
+
+		Response body
+			{
+			    "auth_token": "user_authentication_token",
+			    "name": "Guest Username",
+			    "token": "Request_body token",
+			    "channel": "Request_body channel",
+			    "reference_number": "Request_body reference_number",
+			    "type_of_request": "Request_body type_of_request"
+			}
+
+	Step-4:- 
+
+		For example you get auth_token it like that way. You need to use it in get pdf ocr and ocr api for user authentication.
+		auth_token:- "WgHAsQvpclZ7CDJUj50CKRo6dWfcqd3j"
+
+	Step-5:- 
+
+		Use this below url to access the get ocr api version one and two and pdf ocr apis:
+
+		a. The GET OCR API version one can be accessed via the following URL:
+
+			https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-ocr-results/
+
+		b. The GET OCR API version two can be accessed via the following URL:
+
+				https://{server_name}.datafornix.com/{tenant_name}/api/v2/asset/get-ocr-results/
+
+		c. The GET pdf OCR API for pdf type document can be accessed via the following URL:
+
+				https://{server_name}.datafornix.com/{tenant_name}/api/v1/asset/get-pdf-ocr/
+
+		Request Header for the above is:
+
+			Token:   Token "api_token" (It's type is string. You can find it by api documantation point 10)
+			Authorization: bearer "auth_token"(Use auth_token what we get form create_user_token)
+
+		1. If the document has single image like passport. It is the request structure of get ocr api. So the request structure as below:-
+
+			Request Body:
+			{
+			  "document_type": "",
+			  "channel": "web",
+			  "reference_number": "123",
+			   "images": [
+				{
+					"authority": "AE",
+					"description": "Front",
+					"image_string": ""
+				}
+			]
+			}
+
+		2. If the document has front and back both image like identity card. So the request structure as below:-
+
+
+			Request Body:
+
+			{
+			  "document_type": "",
+			  "channel": "web",
+			  "reference_number": "123",
+			   "images": [
+				{
+					"authority": "AE",
+					"description": "Back",
+					"image_string": ""
+				}
+			]
+			}
+
+
+		3. If the document is pdf or image. It is the request structure of get pdf ocr api.So the request structure as below:-
+
+			extraction_mode:realtime
+			document_type:"Invoice/Trade Licence"
+			reference_number:""
+			channel:""
+			type_of_request""
+			pdf: "Image/PDF"  //"File_object"
+
+	Step-6:- The get ocr api version 1 and version 2 response below:
+
+		{
+	    "application_error_list": [     
+		{
+		    "error_code": "",
+		    "error_message": ""
+		},
+		{
+		    "error_code": "",
+		    "error_message": ""
+		}
+	    ],
+	    "data": {
+		"asset_type": "",
+		"channel": "web",
+		"reference_number": "",
+		"type_of_request": "get OCR",
+		"properties": {}      // All extracted fields with values come here
+	    },
+	    "image_feedback": {
+		"back_image_resolution": "",
+		"is_front_exif_data": "",
+		"front_image_orientation": "",
+		"front_image_resolution": "",
+		"is_back_exif_data": "",
+		"back_image_orientation": ""
+	    },
+	    "image_quality_feedback": ""
+	}
+
+	Step-7:- The pdf ocr api version response below:-
+
+		{
+		    "data": {
+			"channel": "web",
+			"reference_number": "123",
+			"properties": {}                  // All extracted fields with values come here
+		    },
+		    "application_error_list": []
+		}
